@@ -1,0 +1,21 @@
+
+.tutorial-page-subtitle{
+    color: gray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.tutorial-page-link-style{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    font-weight: normal;
+    text-decoration: none;
+    color: purple;
+}
+
+.tutorial-page-link-style:hover{
+    text-decoration: underline;
+    color: black;
+    transition: 0.3s;
+}

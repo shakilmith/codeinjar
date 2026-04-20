@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+}
+.link-style{
+    color: rgb(105, 105, 227);
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.link-style:hover{
+    color: red;
+}
+
+/** Image style in tutorial pages
+* In desktop version, image will be centered
+* Mobile or tablet version, it will be full width
+*/
+
+/* for mobile */
+.post-image-style{
+    width: 100%; 
+    height: auto;
+    display: block;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+/* for desktop */
+@media screen and (min-width: 580px){
+    .post-image-style{
+        width: 50%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
