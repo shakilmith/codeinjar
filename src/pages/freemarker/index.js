@@ -20,6 +20,10 @@ const linkIcon=(
 
 export default function FreemarkerTutorialPage({data}){
      const posts = data.allMdx.nodes;
+     const introPosts = posts.filter(
+      post => post.frontmatter.level === "intro"
+     )
+
     return(
         <>
         <SEO
@@ -31,14 +35,10 @@ export default function FreemarkerTutorialPage({data}){
             <div className={tutorialPageTitle}>
               <p>Freemarker Tutorial</p>
            </div>
-                <ThymeleafPosts />
-                <div>
-                    <h2>Hello, World</h2>
-                </div>
 
-                 <ul className={`${listStyle} ${gridContainer}`}>
+            <ul className={`${listStyle} ${gridContainer}`}>
          {
-            posts.map((post)=>(
+            introPosts.map((post)=>(
                 <li key={post.id}> 
                 <span style={{fontWeight: "bold", color: "gray"}}>{linkIcon}</span>{` `} 
                 <Link to={`/${post.frontmatter.slug}`} className={`${linkStyle} ${urlEffect}`}>{post.frontmatter.title}</Link>
@@ -51,38 +51,21 @@ export default function FreemarkerTutorialPage({data}){
     )
 }
 
-//fetch posts
-const ThymeleafPosts=()=>{
-    
-    return(
-         <div>
-            
-         <ul className={`${listStyle} ${gridContainer}`}>
-         {
-            posts.map((post)=>(
-                <li key={post.id}> 
-                <span style={{fontWeight: "bold", color: "gray"}}>{linkIcon}</span>{` `} 
-                <Link to={post.url} className={`${linkStyle} ${urlEffect}`}>{post.title}</Link>
-                </li>
-            ))
-         }
-         </ul>
-
-         </div>
-    )
-}
 
 
+//fetch all posts based on category
 export const query = graphql`
   query {
     allMdx(
-      filter: {frontmatter: {level: {eq: "intro"}, category: {eq: "freemarker"}}}
+      filter: {frontmatter: category: {eq: "freemarker"}}}
     ) {
       nodes {
         frontmatter {
           title
           slug
           postInfo
+          level
+          order
         }
         id
         internal {
@@ -92,46 +75,6 @@ export const query = graphql`
     }
   }
 `
-
-
-const posts=[
-        {
-            id: "1",
-            title: "Spring Boot Freemarker View",
-            url: "/blog/spring-boot-freemarker-view"
-        },
-        {
-            id: "2",
-            title: "Freemarker Assign Directive",
-            url: "/freemarker-assign-directive"
-        },
-        {
-            id: "3",
-            title: "How to Use Freemarker If and Else directive",
-            url: "/freemarker-if-directive"
-        },
-        {
-            id: "4",
-            title: "Using List Directive in Freemarker Templates",
-            url: "/freemarker-list-directive"
-        },
-        {
-            id: "5",
-            title: "How to use Include and Import Directive in Your Freemarker Templates",
-            url: "/freemarker-include-import-directive"
-        },
-        {
-            id: "6",
-            title: "Creating Macro Directive",
-            url: "/freemarker-macro-directive"
-        },
-        {
-            id: "7",
-            title: "Built in Methods for List, Sequence and Hashes",
-            url: "/freemarker-built-in-methods-for-list"
-        },
-
-]
 
 
 
