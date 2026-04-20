@@ -57,7 +57,7 @@ export default function FreemarkerTutorialPage({data}){
 export const query = graphql`
   query {
     allMdx(
-      filter: {frontmatter: category: {eq: "freemarker"}}}
+      filter: {frontmatter: {category: {eq: "freemarker"}}}
     ) {
       nodes {
         frontmatter {
