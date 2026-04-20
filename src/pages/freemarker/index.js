@@ -20,6 +20,8 @@ const linkIcon=(
 
 export default function FreemarkerTutorialPage({data}){
      const posts = data.allMdx.nodes;
+
+     //fetch intro posts
      const introPosts = posts.filter(
       post => post.frontmatter.level === "intro"
      )
@@ -53,7 +55,7 @@ export default function FreemarkerTutorialPage({data}){
 
 
 
-//fetch all posts based on category
+//graphql query for fetching posts
 export const query = graphql`
   query {
     allMdx(
@@ -65,7 +67,6 @@ export const query = graphql`
           slug
           postInfo
           level
-          order
         }
         id
         internal {
