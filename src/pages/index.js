@@ -123,7 +123,7 @@ const tutorials=[
     id: "8",
     title: "Quarkus Qute",
     description: "Qute is a templating engine designed specifically to meet the Quarkus needs. The usage of reflection is minimized to reduce the size of native images.",
-    url: "/qute",
+    url: "/quarkus-qute",
     photo: "photo-url"
   },
   {
