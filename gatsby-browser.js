@@ -1,12 +1,6 @@
 // gatsby-browser.js
 import React from 'react';
 import './src/styles/global.css';
-//import primereact icons css file and one of its theme (aura)
-import 'primeicons/primeicons.css';
-import "primereact/resources/themes/lara-light-cyan/theme.css";
-
-import PrimeProvider from "./src/providers/PrimeProvider";
-
 
 //highlighJS
 import hljs from "highlight.js";
@@ -20,6 +14,3 @@ export const onRouteUpdate = () => {
   }
 };
 
-export const wrapRootElement = ({ element }) => (
-  <PrimeProvider>{element}</PrimeProvider>
-);
