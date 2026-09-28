@@ -1,25 +1,21 @@
 import * as React from "react"
 import {rootContainer} from "../layout.module.css"
-import Footer from "../footer";
-import SideBar from "../sidebar/sidebar";
+import { Slice } from "gatsby";
 
 const HomePageLayout=({children})=>{
     return(
         <div>
             {/*Header section*/}
-            
-            <SideBar />
+            <Slice alias="header" />
 
-            {/*root content body*/}
+            {/*content body*/}
             <div className={rootContainer}>
                 {children}
             </div>
 
 
-        {/*Footer section*/}
-           <div>
-            <Footer />
-           </div>
+        {/*Footer component*/}
+        <Slice alias="footer" />
         </div>
     )
 }

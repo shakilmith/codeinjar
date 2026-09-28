@@ -2,6 +2,8 @@ import * as React from "react"
 import {rootContainer} from "./layout.module.css"
 import Footer from "./footer"
 import SideBar from "./sidebar/sidebar"
+import Header from "./header"
+import { Slice } from "gatsby"
 
 
 
@@ -10,7 +12,8 @@ const Layout =({ children })=>{
     return(
         <div>
             {/*Header: top nav*/}
-            <SideBar />
+            <Slice alias="header" />
+
             {/*root content body*/}
             <div className={rootContainer}>
             <main>
@@ -18,9 +21,8 @@ const Layout =({ children })=>{
             </main>
             </div>
             
-           <div>
-            <Footer />
-           </div>
+           {/*Footer component*/}
+           <Slice alias="footer" />
         </div>
     )
 }

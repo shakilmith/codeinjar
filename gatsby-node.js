@@ -6,6 +6,22 @@ const postTemplate = path.resolve(`./src/templates/post-template.js`);
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  const { createSlice } = actions;
+
+  //creating header, footer etc. slice
+  
+   // Register the Header Slice
+  createSlice({
+    id: "header",
+    component: path.resolve("./src/components/header.js"),
+  })
+
+  // Register the Footer Slice
+  createSlice({
+    id: "footer",
+    component: path.resolve("./src/components/footer.js"),
+  })
+
 
 
   //query to retrieve all mdx posts, located in the content folder

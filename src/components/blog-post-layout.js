@@ -1,23 +1,23 @@
 import * as React from "react"
 import {postContainer, postContentStyle} from "./css/post.module.css"
-import Footer from "./footer"
-import SideBar from "./sidebar/sidebar"
+import { Slice } from "gatsby"
 
 
 const BlogPostLayout =({ children })=>{
     return(
     <div>
-        {/*Header section*/}
-        <SideBar />
+        {/*Header component*/}
+        <Slice alias="header" />
        
+       {/*content section*/}
         <div className={postContainer}>
           <div className={postContentStyle}>
               {children}
           </div>
         </div>
 
-        {/*Footer section*/}
-        <Footer />
+        {/*Footer component*/}
+        <Slice alias="footer" />
     </div>
     )
 }
