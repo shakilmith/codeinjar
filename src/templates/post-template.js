@@ -55,7 +55,7 @@ export const Head=({data})=>{
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     {/*montag ads*/}
-    <meta name="monetag" content="7efa2fb249f173347075db1a48be1e51" />
+    
     </>
   )
 }
