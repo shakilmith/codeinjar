@@ -3,26 +3,23 @@ const path = require("path");
 //default postTemplate for all mdx posts
 const postTemplate = path.resolve(`./src/templates/post-template.js`);
 
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const { createSlice } = actions;
 
   //creating header, footer etc. slice
-  
-   // Register the Header Slice
+
+  // Register the Header Slice
   createSlice({
     id: "header",
     component: path.resolve("./src/components/header.js"),
-  })
+  });
 
   // Register the Footer Slice
   createSlice({
     id: "footer",
     component: path.resolve("./src/components/footer.js"),
-  })
-
-
+  });
 
   //query to retrieve all mdx posts, located in the content folder
   const result = await graphql(`
@@ -34,10 +31,11 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             title
             category
+            description
           }
           internal {
             contentFilePath
-      }
+          }
         }
       }
     }
@@ -54,27 +52,23 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allMdx.nodes;
 
   //create mdx posts (default posts)
-  posts.forEach((post)=> {
-    const slug = post.frontmatter.slug || post.internal.contentFilePath
+  posts.forEach((post) => {
+    const slug =
+      post.frontmatter.slug ||
+      post.internal.contentFilePath
         .split("/")
         .pop()
         .replace(/\.[^/.]+$/, "");
 
-    
     createPage({
       path: `/${slug}`, // Path based on category or default slug
       component: `${postTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
       context: {
-        id: post.id
+        id: post.id,
+        category: post.frontmatter.category || null,
       },
+    });
+  });
 
-    })
-  })
-
-
-//create path for blog posts (/blog/{slug})
-
-  
-  
+  //create path for blog posts (/blog/{slug})
 };
-

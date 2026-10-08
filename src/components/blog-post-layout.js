@@ -1,5 +1,5 @@
 import * as React from "react"
-import {postContainer, postContentStyle} from "./css/post.module.css"
+import {postContainer, postContentStyle, relatedPosts} from "./css/post.module.css"
 import { Slice } from "gatsby"
 
 
@@ -8,13 +8,12 @@ const BlogPostLayout =({ children })=>{
     <div>
         {/*Header component*/}
         <Slice alias="header" />
-       
-       {/*content section*/}
-        <div className={postContainer}>
-          <div className={postContentStyle}>
-              {children}
-          </div>
-        </div>
+
+
+        {/*main content: mdx*/}
+        <main>
+            {children}
+        </main>
 
         {/*Footer component*/}
         <Slice alias="footer" />
