@@ -7,6 +7,7 @@ export default function Demo(){
             <h2>Demo Page</h2>
             <br/>
             <Link to="/hello">Hello, Page</Link>
+            <Link to="/">Go to Index Page</Link>
         </div>
     )
 }
