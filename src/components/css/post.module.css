@@ -27,9 +27,17 @@
 }
 
 .related-posts a {
+    font-family: "ABeeZee", sans-serif;
     display: block;
     margin-bottom: 10px;
     text-decoration: none;
+    color: rgba(22, 101, 134, 0.859);
+}
+
+.related-posts a:hover{
+    color: black;
+    opacity: 0.8 ease;
+    text-decoration: underline;
 }
 
 /* Actual post on the right */
@@ -40,7 +48,7 @@
     font-weight: 400;
     font-style: normal;
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 /* Mobile */

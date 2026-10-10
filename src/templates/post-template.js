@@ -33,17 +33,17 @@ const PostTemplate = ({
         <div className={relatedPosts}>
           {category && (
             <>
-              <h3>{category}</h3>
+              <h3>{category.charAt(0).toUpperCase() + category.slice(1)}-Related Posts</h3>
 
-              <ul>
+              <div>
                 {categoryPosts.nodes.map((post) => (
-                  <li key={post.id}>
+                  <p key={post.id}>
                     <Link to={`/${post.frontmatter.slug}`}>
                       {post.frontmatter.title}
                     </Link>
-                  </li>
+                  </p>
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </div>
@@ -74,6 +74,7 @@ export const query = graphql`
 
     categoryPosts: allMdx(
       filter: { frontmatter: { category: { eq: $category } } }
+      limit: 20
     ) {
       nodes {
         id
