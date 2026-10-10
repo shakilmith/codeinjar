@@ -1,9 +1,12 @@
+import { Link } from "gatsby"
 import * as React from "react"
 
 export default function Demo(){
     return (
         <div>
-            <h2>Hello, WORLD</h2>
+            <h2>Demo Page</h2>
+            <br/>
+            <Link to="/hello">Hello, Page</Link>
         </div>
     )
 }
