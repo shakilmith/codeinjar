@@ -1,8 +1,5 @@
 import * as React from "react"
 import {rootContainer} from "./layout.module.css"
-import Footer from "./footer"
-import SideBar from "./sidebar/sidebar"
-import Header from "./header"
 import { Slice } from "gatsby"
 
 

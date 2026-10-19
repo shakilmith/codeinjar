@@ -1,14 +1,30 @@
-import { Link } from "gatsby"
+
 import * as React from "react"
 
-export default function Demo(){
-    return (
-        <div>
-            <h2>Demo Page</h2>
-            <br/>
-            <Link to="/hello">Hello, Page</Link>
-            <Link to="/">Go to Index Page</Link>
-        </div>
-    )
+import {
+  Box,
+  Button,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
+
+import ChakraWrapper from "../components/ChakraWrapper";
+
+export default function Demo() {
+  return (
+    <ChakraWrapper>
+      <Box p="6" borderWidth="1px" borderRadius="lg">
+        <Heading size="lg">Join us</Heading>
+
+        <Text mt="2">
+          Create your account today.
+        </Text>
+
+        <Button mt="4" colorPalette="teal">
+          Sign up
+        </Button>
+      </Box>
+    </ChakraWrapper>
+  );
 }
         

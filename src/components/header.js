@@ -1,9 +1,12 @@
 import * as React from "react"
+import Drawer from "./drawer"
+import SideBar from "./drawer"
+
 
 export default function Header(){
     return(
-        <div>
-            <h2>Header File</h2>
+        <div style={{background: "gray"}}>
+            <SideBar />
         </div>
     )
 }

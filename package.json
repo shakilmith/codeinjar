@@ -15,6 +15,8 @@
     "clean": "cross-env NODE_OPTIONS=--max-old-space-size=8192 gatsby clean"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.37.0",
+    "@emotion/react": "^11.14.0",
     "@mdx-js/react": "^2.0.0",
     "gatsby": "^5.16.1",
     "gatsby-plugin-image": "^3.16.0",
