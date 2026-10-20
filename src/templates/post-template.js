@@ -5,7 +5,7 @@ import BlogPostLayout from "../components/blog-post-layout";
 import SEO from "../components/seo/seo.js";
 import { Link } from "gatsby";
 import {relatedPosts, postContainer, postContentStyle} from "../components/css/post.module.css"
-
+import "../styles/markdown.css"
 
 
 const PostTemplate = ({
@@ -51,7 +51,9 @@ const PostTemplate = ({
         {/*actual posts content*/}
         <div className={postContentStyle}>
           <h1 className="abeezee-regular-title">{title}</h1>
-          <main className="post-content-style">{children}</main>
+          <main className="markdown">
+            {children}
+          </main>
         </div>
 
 
