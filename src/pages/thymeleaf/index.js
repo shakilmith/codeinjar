@@ -1,9 +1,9 @@
 import * as React from "react"
 import Layout from "../../components/layout";
-import { linkStyle, urlEffect, gridContainer, listStyle, tutorialPageTitle } from "../../components/layout.module.css"
+import { linkStyle, urlEffect, gridContainer, listStyle, tutorialPageTitle, tutorialPageContainer, tutorialPageSubtitle} from "../../components/layout.module.css"
 import SEO from "../../components/seo/seo";
 import { Link } from "gatsby";
-
+import HashIcon from "../../components/HashIcon";
 
 
 
@@ -26,8 +26,9 @@ export default function ThymeleafTutorialPage(){
               <p>Thymeleaf Tutorial</p>
            </div>
 
-    
-                <ThymeleafPosts />
+           <div className={tutorialPageContainer}>
+            <ThymeleafPosts />
+           </div>
         </Layout>
         </>
     )
@@ -38,11 +39,14 @@ const ThymeleafPosts=()=>{
 
     return(
          <div>
-         <ul className={`${listStyle} ${gridContainer}`}>
+            <div>
+                <h3 className={tutorialPageSubtitle}>Familiar with Template Syntax</h3>
+            </div>
+         <ul>
          {
             posts.map((data, id)=>(
                 <li key={id}> 
-                <span style={{fontWeight: "bold", color: "gray"}}>{linkIcon}</span>{` `} 
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
                 <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                 </li>
             ))

@@ -1,23 +1,4 @@
-.root-containe{
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  flex-direction: column;
-  min-height: 50vh;
-  width: 100%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
 
-/*Container for blog posts*/
-.post-containe {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  padding: 12px;
-  max-width: 750px;
-  background-color: rgb(255, 255, 255);
-  color: black;
-}
 /* Root layout */
 .root-container {
   margin: 0;
@@ -122,12 +103,14 @@
 /*Style for tutorial page.*/
 
 .list-style {
-  box-sizing: border-box;
-  margin-left: -16px;
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
 }
 
 .list-style > li {
-  list-style-type: none;
+  padding: 0.25rem 0.75rem;
+  transition: background 0.2s ease;
 }
 
 .grid-container {
@@ -232,4 +215,40 @@ pre code {
   .grid-container1{
     grid-template-columns: auto;
   }
+}
+
+
+/*for tutorial pages*/
+.tutorial-page-container{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  padding: 0.75rem;
+}
+
+.tutorial-page-subtitle{
+    color: gray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+/*for examples: (like python examples, java examples*/
+
+.example-list-style {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.example-list-style > li {
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  background: #e5e8ec;
+  border-left: 3px solid #3b82f6;
+  border-radius: 4px;
+  transition: background 0.2s ease;
 }

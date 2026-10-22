@@ -13,9 +13,7 @@ const Layout =({ children })=>{
 
             {/*root content body*/}
             <div className={rootContainer}>
-            <main>
                 {children}
-            </main>
             </div>
             
            {/*Footer component*/}

@@ -2,6 +2,8 @@ import * as React from "react"
 import {Link} from "gatsby"
 import Layout from "../../components/layout";
 import SEO from "../../components/seo/seo";
+import {tutorialPageContainer, tutorialPageTitle, linkStyle, urlEffect} from "../../components/layout.module.css"
+import HashIcon from "../../components/HashIcon";
 
 
 const ReactPage=()=>{
@@ -9,41 +11,77 @@ const ReactPage=()=>{
         <>
         <SEO title="React | CodeinJar"></SEO>
         <Layout>
-            <div>
+            <div className={tutorialPageTitle}>
                 <h2>React Tutorial</h2>
             </div>
-            <ul>
-                <li>
-                    <Link to="/first-react-application">Create Your First React Application</Link>
-                </li>
-                <li>
-                    <Link to="/react-list">React List</Link>
-                </li>
-                <li>
-                    <Link to="/react-functional-component">React Functional Component</Link>
-                </li>
-                <li>
-                    <Link to="/react-hooks">React Hooks</Link>
-                </li>
-                <li>
-                    <Link to="/react-useState-hook">React UseState Hook</Link>
-                </li>
-                <li>
-                    <Link to="/react-props">React Props</Link>
-                </li>
-                <li>
-                    <Link to="/react-useCallback-hook">React useCallback Hook</Link>
-                </li>
 
-                <li>
-                    <Link to="/conditionally-render-elements-in-react">conditionally Render Elements in React</Link>
+
+        {/*Post links*/}
+        <div className={tutorialPageContainer}>
+         <ul>
+         {
+            reactLinks.map((data, id)=>(
+                <li key={id}> 
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
+                 <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                 </li>
-            </ul>
-        </Layout>
+            ))
+         }
+         </ul>
+         </div>
+
+            </Layout>
         </>
     )
 }
 
+
+
+
+
+
+const reactLinks=[
+     {
+        id: "1",
+        title: "Create Your First React Application",
+        url: "/first-react-application"
+    },
+    {
+        id: "2",
+        title: "React Props Basics",
+        url: "/react-props"
+    },
+    {
+        id: "3",
+        title: "React Components Basics",
+        url: "/react-functional-component"
+    },
+    {
+        id: "4",
+        title: "Work with React Lists",
+        url: "/react-list"
+    },
+    {
+        id: "5",
+        title: "React Built in Hooks",
+        url: "/react-hooks"
+    },
+    {
+        id: "6",
+        title: "React useState Hook",
+        url: "/react-useState-hook"
+    },
+    {
+        id: "7",
+        title: "React useCallBack Hook",
+        url: "/react-useCallback-hook"
+    },
+    {
+        id: "8",
+        title: "How to Conditionally Render Elements in React",
+        url: "/conditionally-render-elements-in-react"
+    }
+]
 
 
 export default ReactPage;

@@ -1,10 +1,10 @@
 import * as React from "react"
 import {Link} from "gatsby"
 import Layout from "../../components/layout";
-import { linkStyle, urlEffect, gridContainer, listStyle, tutorialPageTitle } from "../../components/layout.module.css"
+import { linkStyle, urlEffect, gridContainer, listStyle, tutorialPageTitle, tutorialPageContainer } from "../../components/layout.module.css"
 import SEO from "../../components/seo/seo";
 import { graphql } from "gatsby";
-
+import HashIcon from "../../components/HashIcon";
 
 
 //link icon svg path
@@ -38,16 +38,18 @@ export default function FreemarkerTutorialPage({data}){
               <p>Freemarker Tutorial</p>
            </div>
 
-            <ul className={`${listStyle} ${gridContainer}`}>
+           <div className={tutorialPageContainer}>
+            <ul>
          {
             introPosts.map((post)=>(
                 <li key={post.id}> 
-                <span style={{fontWeight: "bold", color: "gray"}}>{linkIcon}</span>{` `} 
-                <Link to={`/${post.frontmatter.slug}`} className={`${linkStyle} ${urlEffect}`}>{post.frontmatter.title}</Link>
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
+                <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                 </li>
             ))
          }
          </ul>
+         </div>
         </Layout>
         </>
     )

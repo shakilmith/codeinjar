@@ -1,25 +1,32 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import {container, linkStyle} from "../../components/css/example.module.css"
+import {container} from "../../components/css/example.module.css"
+import {tutorialPageContainer, urlEffect, linkStyle, exampleListStyle, tutorialPageSubtitle} from "../../components/layout.module.css"
+import HashIcon from "../../components/HashIcon"
+import Layout from "../../components/layout"
 
 
 
+//root component
 export default function JavaExamplesPage({data}){
     const posts = data.allMdx.nodes;
 
     return(
-        <div className={container}>
-            <h1>Java Examples</h1>
+      <Layout>
+        <div className={tutorialPageContainer}>
+            <h3 className={tutorialPageSubtitle}>Java Examples</h3>
+            <ul className={exampleListStyle}>
             {
-                posts.map((post)=>(
-                        <p>
-                            <Link to={`/${post.frontmatter.slug}`} className={linkStyle}>
-                            {post.frontmatter.title}
-                            </Link>
-                        </p>
+              posts.map((node)=>(
+                <li key={node.id}>
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
+                <Link to={`/${node.frontmatter.slug}`} className={`${linkStyle} ${urlEffect}`}>{node.frontmatter.title}</Link>
+                </li>
                 ))
             }
+            </ul>
         </div>
+      </Layout>
     )
 }
 

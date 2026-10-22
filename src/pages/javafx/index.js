@@ -1,8 +1,9 @@
 import * as React from "react"
 import {Link} from "gatsby"
 import Layout from "../../components/layout";
-import { linkStyle, urlEffect, gridContainer, listStyle, tutorialPageTitle } from "../../components/layout.module.css"
+import { linkStyle, urlEffect, gridContainer, listStyle, tutorialPageTitle, tutorialPageContainer} from "../../components/layout.module.css"
 import SEO from "../../components/seo/seo";
+import HashIcon from "../../components/HashIcon";
 
 
 
@@ -26,10 +27,13 @@ const JavafxPage=()=>{
         <Layout>
             <div className={tutorialPageTitle}>
               <p>JavaFX Tutorial</p>
-           </div>
+            </div>
+
+            <div>
                 <JavaFXUI />
                 <JavafxCharts />
                 <JavafxShapes />
+            </div>
         </Layout>
         </>
     )
@@ -61,13 +65,13 @@ const GettingStartedGuide=()=>{
 //javafx Basic controllers
 const JavaFXUI=()=>{
     return( 
-        <div>
+        <div className={tutorialPageContainer}>
             <h2>JavaFX Layouts and UI Controls</h2>
-        <ul className={`${gridContainer} ${listStyle}`}>
+        <ul>
          {
             javafxUI.map((data, id)=>(
                 <li key={id}>
-                <span style={{fontWeight: "bold", color: "gray"}}>{linkIcon}</span>{` `} 
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
                 <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                 </li>
             ))
@@ -81,13 +85,13 @@ const JavaFXUI=()=>{
 const JavafxCharts=()=>{
 
     return( 
-        <div>
+        <div className={tutorialPageContainer}>
             <h2>JavaFX Charts</h2>
-        <ul className={`${gridContainer} ${listStyle}`}>
+            <ul>
          {
             charts.map((data, id)=>(
                 <li key={id}>
-                <span style={{fontWeight: "bold", color: "gray"}}>{linkIcon}</span>{` `} 
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
                 <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                 </li>
             ))
@@ -214,13 +218,13 @@ const charts=[
 //javafx shapes component
 const JavafxShapes=()=>{
     return(
-        <div>
+        <div className={tutorialPageContainer}>
         <h2>JavaFX Graphics</h2>
-    <ul className={`${gridContainer} ${listStyle}`}>
+    <ul style={{paddingLeft: "48px"}}>
      {
         shapes.map((data)=>(
             <li key={data.id}>
-                 <b><dt style={{fontSize: 22}}>{data.title}</dt></b>
+                 <h3><dt style={{fontSize: 22}}>{data.title}</dt></h3>
                  
           <div>   
             <dl>
@@ -228,10 +232,8 @@ const JavafxShapes=()=>{
                 data.shape.map((data)=>(
                    <dd key={data.id}>
                     <li>
-                    <span style={{fontWeight: "bold", color: "gray"}}>{linkIcon}</span>{` `}
-                     <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>
-                       {data.title}
-                     </Link>
+                    <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
+                    <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                  </li>
                  </dd>
                 ))
@@ -243,7 +245,7 @@ const JavafxShapes=()=>{
         ))
     
      }
-     </ul>  
+     </ul> 
     </div>
    )
 }

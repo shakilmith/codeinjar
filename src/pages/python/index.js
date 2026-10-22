@@ -2,15 +2,9 @@ import * as React from "react"
 import Layout from "../../components/layout";
 import {tutorialPageTitle, gridContainer} from "../../components/layout.module.css"
 import { Link } from "gatsby";
-import {tutorialPageLinkStyle, tutorialPageSubtitle} from "../../components/layout/tutorial-page.module.css"
+import { tutorialPageSubtitle, tutorialPageContainer, linkStyle, urlEffect, listStyle} from "../../components/layout.module.css"
 import SEO from "../../components/seo/seo";
-
-
-const container={
-    marginLeft: 16 + "px",
-    marginTop: 8 + "px"
-}
-
+import HashIcon from "../../components/HashIcon";
 
 
 
@@ -23,19 +17,17 @@ const PythonTutorial=()=>{
          <>
          <SEO title="Python Tutorial | CodeinJar"></SEO>
         <Layout>
-            
             <div className={tutorialPageTitle}>
               <p>Python Tutorial</p>
            </div>
-           <div>
+
+           <div className={tutorialPageContainer}>
             <LanguageBasics />
-           </div>
-           <div>
             <PythonCollection />
-           </div>
-           <div>
+            <PythonCollection />
             <PythonAdvanced />
            </div>
+        
         </Layout>
         </>
     )
@@ -49,15 +41,14 @@ const PythonTutorial=()=>{
 const LanguageBasics=()=>{
 
     return(
-         <div style={container}>
-         <p className={tutorialPageSubtitle}>Language Basics</p>
-         <ul className={gridContainer}>
+         <div>
+         <h3 className={tutorialPageSubtitle}>Language Basics</h3>
+         <ul>
          {
             language_basics.map((data, id)=>(
                 <li key={id}>
-                <Link to={data.url} className={`${tutorialPageLinkStyle}`}>
-                    <span>{data.title}</span>
-                </Link>
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
+                 <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                 </li>
             ))
          }
@@ -74,15 +65,14 @@ const LanguageBasics=()=>{
 const PythonCollection=()=>{
 
     return(
-         <div style={container}>
-         <p className={tutorialPageSubtitle}>Python Sequence Types</p>
-         <ul className={gridContainer}>
+         <div>
+         <h3 className={tutorialPageSubtitle}>Python Sequence Types</h3>
+         <ul>
          {
             python_collections.map((data, id)=>(
                 <li key={id}>
-                <Link to={data.url} className={`${tutorialPageLinkStyle}`}>
-                    <span>{data.title}</span>
-                </Link>
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
+                 <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                 </li>
             ))
          }
@@ -99,15 +89,14 @@ const PythonCollection=()=>{
 const PythonAdvanced=()=>{
 
     return(
-         <div style={container}>
-         <p className={tutorialPageSubtitle}>Advanced Topic</p>
-         <ul className={gridContainer}>
+         <div>
+         <h3 className={tutorialPageSubtitle}>advanced Topic</h3>
+         <ul className={listStyle}>
          {
             python_advanced.map((data, id)=>(
                 <li key={id}>
-                <Link to={data.url} className={`${tutorialPageLinkStyle}`}>
-                    <span>{data.title}</span>
-                </Link>
+                <HashIcon style={{display: "inline", paddingRight: "0.50rem"}} size={24}/>
+                <Link to={data.url} className={`${linkStyle} ${urlEffect}`}>{data.title}</Link>
                 </li>
             ))
          }
