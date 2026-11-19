@@ -1,17 +1,25 @@
 import * as React from "react"
 
-import { Button, CloseButton, Drawer, Heading, Portal, Tabs} from "@chakra-ui/react"
+import { Button, CloseButton, Drawer, Heading, Icon, Portal, Tabs} from "@chakra-ui/react"
 import ChakraWrapper from "./ChakraWrapper"
 import { Link } from "gatsby"
+
 
 export default function SideBar(){
   return (
     <ChakraWrapper>
     <Drawer.Root>
       <Drawer.Trigger asChild>
-        <Button variant="outline" size="sm">
-          Menu
-        </Button>
+        <Icon size="lg" color="white" asChild style={{cursor: "pointer"}}>
+          <svg viewBox="0 0 32 32" fill="none">
+  <path
+    d="M5 8H27M5 16H27M5 24H27"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+  />
+</svg>
+        </Icon>
       </Drawer.Trigger>
       <Portal>
         <Drawer.Backdrop />
